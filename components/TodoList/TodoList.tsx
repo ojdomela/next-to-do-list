@@ -3,9 +3,9 @@ import React from "react";
 import { TodoItem } from "../TodoItem";
 import { TodoListControls } from "../TodoListControls";
 import { TodoListInput } from "../TodoListInput";
-import { Container, Wrapper, Header } from "./TodoList.styles";
+import { Container, Wrapper, Header, Title } from "./TodoList.styles";
 
-interface Todo {
+export type Todo = {
     id: string;
     text: string;
     completed: boolean;
@@ -23,8 +23,10 @@ const TodoList = () => {
     return (
         <Container>
             <Wrapper>
-                <Header>To do List</Header>
-                <TodoListControls />
+                <Header>
+                    <Title>To do List</Title>
+                    <TodoListControls todos={todos} setTodos={setTodos} />
+                </Header>
                 {todos.map((todo) => (<TodoItem todo={todo} />))}
                 <TodoListInput addTodo={addTodo} />
             </Wrapper>
