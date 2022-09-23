@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { theme } from "../../styles/GlobalStyle";
 
-export const Wrapper = styled.div`
+export const Form = styled.form`
     display: flex;
     align-items: stretch;
     justify-content: space-between;
@@ -10,10 +10,11 @@ export const Wrapper = styled.div`
 
 export const Input = styled.input`
     flex: 1;
+    color: black;
     background-color: ${theme.colors.secondary};
 `;
 
-export const Button = styled.h1`
+export const Button = styled.button`
     color: white;
     background-color: ${theme.colors.primary};
     margin: 0;
