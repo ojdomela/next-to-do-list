@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { theme } from "../../styles/GlobalStyle";
+import { theme } from "../../styles";
 import WrapperHelper from "../helpers/WrapperHelper";
 
 export const Container = styled.div`

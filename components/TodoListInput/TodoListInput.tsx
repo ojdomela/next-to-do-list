@@ -18,7 +18,7 @@ const TodoListInput: React.FC<Props> = ({ setTodos }) => {
 
     const addTodo = React.useCallback((text: string) => {
         setTodos(prevList => {
-            return [...prevList, { id: uuidv4(), text, completed: false, date: new Date() }];
+            return [{ id: uuidv4(), text, completed: false, date: new Date() }, ...prevList];
         })
     }, []);
 

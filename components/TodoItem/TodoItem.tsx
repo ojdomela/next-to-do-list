@@ -1,11 +1,6 @@
 import React from "react";
+import { Todo } from "../TodoList";
 import { Container, Wrapper, Text } from "./TodoItem.styles";
-
-interface Todo {
-    id: string;
-    text: string;
-    completed: boolean;
-}
 
 interface Props {
     todo: Todo;
@@ -35,12 +30,17 @@ const TodoList: React.FC<Props> = ({ todo, setTodos }) => {
         })
     }, []);
 
+    const dateString = React.useMemo(() => {
+        const date = new Date(todo.date);
+        return `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;
+    }, [todo.date]);
+
     return (
         <Container>
             <input type="checkbox" checked={todo.completed} onChange={() => toggleComplete(todo.id)} />
             <Wrapper>
                 <Text fontWeight="bold" completed={todo.completed}>{todo.text}</Text>
-                <Text fontSize="1.2rem">date placeholder</Text>
+                <Text fontSize="1.2rem">{dateString}</Text>
             </Wrapper>
             <p onClick={() => removeTodo(todo.id)}>DEL</p>
         </Container>

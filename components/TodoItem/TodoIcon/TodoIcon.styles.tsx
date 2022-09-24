@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { theme } from "../../../styles/GlobalStyle";
+import { theme } from "../../../styles";
 
 export const Wrapper = styled.div`
     display: flex;
