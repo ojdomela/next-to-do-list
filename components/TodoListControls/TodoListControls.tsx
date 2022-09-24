@@ -8,11 +8,7 @@ interface Props {
 }
 
 const TodoListControls: React.FC<Props> = ({ todos, setTodos }) => {
-
-
-    const button = todos.every(todo => todo.completed) ? "Uncheck All" : "Check All";
-    console.log(todos)    
-    console.log(button)
+    const complete = todos.every(todo => todo.completed) ? "Uncheck All" : "Check All";
 
     return (
         <Container>

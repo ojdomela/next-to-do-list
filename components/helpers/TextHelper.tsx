@@ -3,6 +3,8 @@ import React from "react";
 interface Props {
     className?: string;
     completed?: boolean;
+    fontSize?: string;
+    fontWeight?: string;
     children: React.ReactNode;
 }
 

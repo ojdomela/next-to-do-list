@@ -28,7 +28,6 @@ export const Header = styled.header`
 
 export const Title = styled.h1`
     margin: 0;
-    height: 5rem;
     padding: 1.5rem;
 `;
 

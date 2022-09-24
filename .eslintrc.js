@@ -2,7 +2,7 @@ module.exports = {
   env: {
     browser: true,
     node: true,
-    jest: true,
+    jest: true
   },
   extends: [
     "eslint:recommended",
@@ -19,16 +19,16 @@ module.exports = {
   parserOptions: {
     ecmaVersion: 2018,
     project: ["./**/tsconfig.json"],
-    sourceType: "module",
+    sourceType: "module"
   },
   plugins: ["@typescript-eslint"],
   rules: {
     "arrow-body-style": "error",
-    "react/prop-types": 0,
+    "react/prop-types": 0
   },
   settings: {
     react: {
-      version: "detect",
-    },
-  },
+      version: "detect"
+    }
+  }
 };
