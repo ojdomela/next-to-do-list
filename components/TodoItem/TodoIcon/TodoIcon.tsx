@@ -5,7 +5,7 @@ const TodoList = () => {
 
     return (
         <div>
-            Some Icon
+            Completed
         </div>
     )
 };

@@ -1,6 +1,6 @@
 import React from "react";
 import { Todo } from "../TodoList";
-import { Container, Wrapper } from "./TodoListControls.styles";
+import { Container } from "./TodoListControls.styles";
 
 interface Props {
     todos: Todo[];
@@ -8,17 +8,20 @@ interface Props {
 }
 
 const TodoListControls: React.FC<Props> = ({ todos, setTodos }) => {
+
+
+    const button = todos.every(todo => todo.completed) ? "Uncheck All" : "Check All";
+    console.log(todos)    
+    console.log(button)
+
     return (
         <Container>
-            <Wrapper>
-                <input type="checkbox" name="check-all" id="check-all" />
-            </Wrapper>
-            <button>Clear</button>
             <select name="" id="">
-                <option value="">Option 1</option>
-                <option value="">Option 2</option>
-                <option value="">Option 3</option>
+                <option value="">Most Recent</option>
+                <option value="">Alphabetically</option>
+                <option value="">Finished</option>
             </select>
+            <button>Mark all as Finished</button>
         </Container>
     )
 };

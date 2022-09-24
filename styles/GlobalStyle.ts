@@ -2,9 +2,9 @@ import { createGlobalStyle } from "styled-components";
 
 export const theme = {
     colors: {
-        primary: "#0070f3",
-        secondary: "lightgrey",
-        background: "black",
+        primary: "#FFAC61",
+        secondary: "#FCD7B6",
+        background: "#131a22",
     },
 };
 
@@ -20,6 +20,7 @@ export default createGlobalStyle`
     body {
         margin: 0;
         min-height: 100vh;
+        color: black;
     }
 
     a {
@@ -28,15 +29,5 @@ export default createGlobalStyle`
 
     ul {
         list-style: none;
-    }
-    
-    @media (prefers-color-scheme: dark) {
-        html {
-          color-scheme: dark;
-        }
-        body {
-          color: white;
-          background: black;
-        }
     }
 `;

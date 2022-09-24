@@ -6,16 +6,18 @@ interface Props {
 }
 
 const TodoListInput: React.FC<Props> = ({ addTodo }) => {
+    const [text, setText] = React.useState("");
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        console.log(e.currentTarget.todo.value);
+        addTodo(text);
+        setText("");
     }
 
     return (
         <Form onSubmit={handleSubmit}>
-            <Input type="text" placeholder="Add a new todo" />
-            <Button type="submit">Add</Button>
+            <Input value={text} onChange={(e) => setText(e.target.value)} name="input" id="input" type="text" placeholder="Add a new todo" />
+            <Button type="submit">+</Button>
         </Form>
     )
 };
