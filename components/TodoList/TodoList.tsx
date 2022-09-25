@@ -46,13 +46,15 @@ const TodoList: React.FC<Props> = ({ darkMode }) => {
         }
     );
 
+    const countString = todos.length === 1 ? "1 item" : `${todos.length} items`;
+
     return (
         <Container>
             <Wrapper>
                 <Header>
                     <Wrapper flexDirection="row" alignItems="center" justifyContent="space-between">
                         <Title>To do List</Title>
-                        <Text>Item count</Text>
+                        <Text>{countString}</Text>
                     </Wrapper>
                     <TodoListControls todos={todos} setTodos={setTodos} setSortBy={setSortBy} />
                 </Header>

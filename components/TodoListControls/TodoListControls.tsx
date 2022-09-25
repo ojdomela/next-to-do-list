@@ -26,7 +26,7 @@ const TodoListControls: React.FC<Props> = ({ todos, setTodos, setSortBy }) => {
                 const value = e.target.value as SortBy;
                 setSortBy(value)
             }} >
-                <option value={SortBy.Date}>Most Recent</option>
+                <option selected value={SortBy.Date}>Most Recent</option>
                 <option value={SortBy.Name}>Alphabetically</option>
                 <option value={SortBy.Completed}>Finished</option>
             </select>

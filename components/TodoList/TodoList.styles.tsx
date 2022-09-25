@@ -23,7 +23,6 @@ export const Wrapper = styled(WrapperHelper)`
 
 export const Header = styled.header`
     background-color: ${theme.colors.primary};
-    height: 10rem;
 `;
 
 export const Title = styled.h1`
@@ -34,4 +33,5 @@ export const Title = styled.h1`
 export const Text = styled.p`
     margin: 0;
     padding: 1.5rem;
+    font-size: 1.5rem;
 `;

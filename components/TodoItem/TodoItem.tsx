@@ -32,7 +32,7 @@ const TodoList: React.FC<Props> = ({ todo, setTodos }) => {
 
     const dateString = React.useMemo(() => {
         const date = new Date(todo.date);
-        return `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;
+        return `Added on ${date.getHours()}:${date.getMinutes()}, ${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;
     }, [todo.date]);
 
     return (
