@@ -9,10 +9,11 @@ interface Props {
 
 
 const TodoList: React.FC<Props> = ({ todo, setTodos }) => {
+    const todoRef = React.useRef<HTMLDivElement>(null);
 
     const toggleComplete = React.useCallback((id: string) => {
         setTodos(prevList => {
-            return prevList.map(todo => {
+            const newList = prevList.map(todo => {
                 if (todo.id === id) {
                     return {
                         ...todo,
@@ -21,12 +22,30 @@ const TodoList: React.FC<Props> = ({ todo, setTodos }) => {
                 }
                 return todo;
             })
+            localStorage.setItem("todos", JSON.stringify(newList));
+            return newList
         })
     }, []);
 
     const removeTodo = React.useCallback((id: string) => {
         setTodos(prevList => {
-            return prevList.filter(todo => todo.id !== id);
+            const newList = prevList.filter(todo => todo.id !== id);
+            localStorage.setItem("todos", JSON.stringify(newList));
+            return newList
+        })
+    }, []);
+
+    React.useEffect(() => {
+        setTodos(prevList => {
+            return prevList.map(item => {
+                if (item.id === todo.id) {
+                    return {
+                        ...item,
+                        y: todoRef.current?.offsetHeight
+                    }
+                }
+                return item;
+            })
         })
     }, []);
 
@@ -36,7 +55,7 @@ const TodoList: React.FC<Props> = ({ todo, setTodos }) => {
     }, [todo.date]);
 
     return (
-        <Container>
+        <Container ref={todoRef}>
             <input type="checkbox" checked={todo.completed} onChange={() => toggleComplete(todo.id)} />
             <Wrapper>
                 <Text fontWeight="bold" completed={todo.completed}>{todo.text}</Text>

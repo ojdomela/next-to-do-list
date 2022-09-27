@@ -10,33 +10,20 @@ export type Todo = {
     text: string;
     completed: boolean;
     date: Date;
-}
-interface Props {
-    darkMode: boolean;
+    y?: number;
 }
 
-export enum SortBy {
-    Date = "date",
-    Completed = "completed",
-    Name = "name"
-}
 
-const TodoList: React.FC<Props> = ({ darkMode }) => {
+const TodoList = () => {
     const [todos, setTodos] = React.useState<Todo[]>([]);
-    const [sortBy, setSortBy] = React.useState<SortBy>(SortBy.Date);
-    const height = 5;
 
-    const sortedTodos =
-        sortBy === SortBy.Date ?
-            [...todos].sort((a, b) => b.date.getTime() - a.date.getTime()) :
-            sortBy === SortBy.Completed ?
-                [...todos].sort((a, b) => (a.completed === b.completed) ? 0 : a.completed ? -1 : 1) :
-                sortBy === SortBy.Name ?
-                    [...todos].sort((a, b) => a.text.localeCompare(b.text)) :
-                    [...todos];
-
+    let totalHeight = 0;
     const transitions = useTransition(
-        sortedTodos.map((data, i) => ({ ...data, y: i * height })),
+        todos.map((data) => {
+            if (data.y === undefined) return data;
+            totalHeight += data.y
+            return { ...data, y: totalHeight - data.y }
+        }),
         {
             from: { opacity: 0, y: 0 },
             leave: { height: 0, opacity: 0 },
@@ -46,33 +33,39 @@ const TodoList: React.FC<Props> = ({ darkMode }) => {
         }
     );
 
+    React.useEffect(() => {
+        const todos = localStorage.getItem("todos");
+        if (todos) {
+            setTodos(JSON.parse(todos).map((todo: Todo) => {
+                todo.date = new Date(todo.date);
+                return todo;
+            }));
+        }
+    }, []);
+
     const countString = todos.length === 1 ? "1 item" : `${todos.length} items`;
 
     return (
         <Container>
+            <Header>
+                <Title>To do List</Title>
+                <Text>{countString}</Text>
+            </Header>
+            <TodoListControls todos={todos} setTodos={setTodos} />
             <Wrapper>
-                <Header>
-                    <Wrapper flexDirection="row" alignItems="center" justifyContent="space-between">
-                        <Title>To do List</Title>
-                        <Text>{countString}</Text>
-                    </Wrapper>
-                    <TodoListControls todos={todos} setTodos={setTodos} setSortBy={setSortBy} />
-                </Header>
-                <Wrapper minHeight="500px">
-                    {transitions(({ y, ...props }, todo) => (
-                        <animated.div
-                            key={todo.id}
-                            style={{
-                                transform: y.to(y => `translate3d(0,${y}rem,0)`),
-                                ...props
-                            }}
-                        >
-                            <TodoItem todo={todo} setTodos={setTodos} />
-                        </animated.div>
-                    ))}
-                </Wrapper>
-                <TodoListInput setTodos={setTodos} />
+                {transitions(({ y, ...props }, todo) => (
+                    <animated.li
+                        key={todo.id}
+                        style={{
+                            transform: y.to(y => `translate3d(0,${y}px,0)`),
+                            ...props
+                        }}
+                    >
+                        <TodoItem todo={todo} setTodos={setTodos} />
+                    </animated.li>
+                ))}
             </Wrapper>
+            <TodoListInput setTodos={setTodos} />
         </Container>
     )
 };

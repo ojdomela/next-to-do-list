@@ -5,22 +5,9 @@ import TodoList from './TodoList';
 
 export default {
     title: 'TodoList',
-    component: TodoList,
-    parameters: {
-        layout: 'fullscreen',
-    },
-    argTypes: {
-        darkMode: {
-            control: {
-                type: 'boolean'
-            }
-        }
-    },
+    component: TodoList
 } as ComponentMeta<typeof TodoList>;
 
-const Template: ComponentStory<typeof TodoList> = (args) => <TodoList {...args} />;
+const Template: ComponentStory<typeof TodoList> = () => <TodoList />;
 
 export const Default = Template.bind({});
-Default.args = {
-    darkMode: true
-};

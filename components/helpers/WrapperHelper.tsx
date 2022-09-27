@@ -1,20 +1,17 @@
-import React from "react";
+import React, { ForwardedRef } from "react";
 
 interface Props {
     className?: string;
-    minHeight?: string;
-    flexDirection?: string;
-    justifyContent?: string;
-    alignItems?: string;
+    ref?: ForwardedRef<HTMLDivElement>;
     children: React.ReactNode;
 }
 
-const WrapperHelper: React.FC<Props> = ({ className, children}) => {
+const WrapperHelper: React.FC<Props> = React.forwardRef(({ className, children }, ref: React.Ref<HTMLDivElement>) => {
     return (
-        <div className={className}>
+        <div ref={ref} className={className}>
             {children}
         </div>
     )
-}
+})
 
 export default WrapperHelper;

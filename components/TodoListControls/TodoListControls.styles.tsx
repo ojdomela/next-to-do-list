@@ -8,5 +8,17 @@ export const Container = styled.div`
     width: 100%;
     background-color: ${theme.colors.primary};
     height: 5rem;
-    padding: 1.5rem;
+    
+    > * {
+        margin: 1.5rem;
+    }
+
+    @media (max-width: 768px) {
+        flex-direction: column;
+        height: auto;
+
+        > * {
+            margin: 0 0 1.5rem 0;
+        }
+    }
 `;

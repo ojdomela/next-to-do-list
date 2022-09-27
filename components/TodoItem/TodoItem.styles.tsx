@@ -8,7 +8,6 @@ export const Container = styled(WrapperHelper)`
     width: 100%;
     display: flex;
     align-items: center;
-    min-height: 5rem;
     padding: 1.5rem;
     gap: 1rem;
     background-color: ${theme.colors.secondary};
