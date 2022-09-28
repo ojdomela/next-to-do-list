@@ -37,8 +37,8 @@ const TodoList: React.FC<Props> = ({ todo, setTodos }) => {
 
     React.useEffect(() => {
         setTodos(prevList => {
-            return prevList.map(item => {
-                if (item.id === todo.id) {
+            const newList = prevList.map(item => {
+                if (item.id === todo.id && !item.y) {
                     return {
                         ...item,
                         y: todoRef.current?.offsetHeight
@@ -46,6 +46,8 @@ const TodoList: React.FC<Props> = ({ todo, setTodos }) => {
                 }
                 return item;
             })
+            localStorage.setItem("todos", JSON.stringify(newList));
+            return newList
         })
     }, []);
 

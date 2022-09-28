@@ -29,7 +29,7 @@ export const Wrapper = styled(WrapperHelper)`
     justify-content: flex-start;
     border: thin solid ${theme.colors.primary};
     background-color: white;
-    min-height: 500px;
+    min-height: 475px;
     overflow-y: scroll;
     -ms-overflow-style: none;
     scrollbar-width: none;
