@@ -5,7 +5,10 @@ import TodoList from './TodoList';
 
 export default {
     title: 'TodoList',
-    component: TodoList
+    component: TodoList,
+    parameters: {
+        layout: 'fullscreen',
+    },
 } as ComponentMeta<typeof TodoList>;
 
 const Template: ComponentStory<typeof TodoList> = () => <TodoList />;

@@ -6,10 +6,16 @@ import TodoListInput from './TodoListInput';
 export default {
     title: 'TodoListInput',
     component: TodoListInput,
+    parameters: {
+        layout: 'fullscreen',
+    },
     argTypes: {
         setTodos: {
             control: {
                 type: 'function',
+            },
+            table: {
+                disable: true,
             },
         }
     }

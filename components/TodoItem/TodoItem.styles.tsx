@@ -5,7 +5,7 @@ import WrapperHelper from "../helpers/WrapperHelper";
 
 export const Container = styled(WrapperHelper)`
     position: absolute;
-    min-width: 100%;
+    width: 100%;
     display: flex;
     align-items: center;
     padding: 1.5rem;

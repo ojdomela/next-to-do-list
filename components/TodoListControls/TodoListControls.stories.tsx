@@ -6,6 +6,9 @@ import TodoListControls from './TodoListControls';
 export default {
     title: 'TodoListControls',
     component: TodoListControls,
+    parameters: {
+        layout: 'fullscreen',
+    },
     argTypes: {
         todos: {
             control: {
@@ -23,6 +26,14 @@ export default {
                 disable: true,
             },
         },
+        setSortBy: {
+            control: {
+                type: 'object',
+            },
+            table: {
+                disable: true,
+            },
+        }
     }
 } as ComponentMeta<typeof TodoListControls>;
 

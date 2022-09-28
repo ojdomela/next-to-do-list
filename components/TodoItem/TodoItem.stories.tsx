@@ -6,6 +6,9 @@ import TodoItem from './TodoItem';
 export default {
     title: 'TodoItem',
     component: TodoItem,
+    parameters: {
+        layout: 'fullscreen',
+    },
     argTypes: {
         todo: {
             control: {
@@ -15,6 +18,9 @@ export default {
         setTodos: {
             control: {
                 type: 'function',
+            },
+            table: {
+                disable: true,
             },
         }
     }
