@@ -3,11 +3,6 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import TodoList from './TodoList';
 
-const Wrapper = (props) => {
-    const [todos, setTodos] = React.useState();
-    return <TodoList {...props} />;
-}
-
 export default {
     title: 'TodoList',
     component: TodoList,
