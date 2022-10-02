@@ -1,7 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import TodoList from './TodoList';
+import TodoList from './TodoApp';
 
 export default {
     title: 'TodoList',

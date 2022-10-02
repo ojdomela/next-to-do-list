@@ -1,5 +1,5 @@
 import React from "react";
-import { SortBy, Todo } from "../TodoList";
+import { SortBy, Todo } from "../TodoApp";
 import { Container } from "./TodoListControls.styles";
 
 interface Props {

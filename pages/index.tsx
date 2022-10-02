@@ -1,6 +1,6 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import { TodoList } from '../components/TodoList'
+import { TodoList } from '../components/TodoApp'
 import styled from 'styled-components';
 import { theme } from '../styles';
 

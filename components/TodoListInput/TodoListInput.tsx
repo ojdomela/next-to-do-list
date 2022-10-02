@@ -1,7 +1,7 @@
 import React from "react";
 import { Form, Input, Button } from "./TodoListInput.styles";
 import { v4 as uuidv4 } from 'uuid';
-import { Todo } from "../TodoList";
+import { Todo } from "../TodoApp";
 
 interface Props {
     setTodos: React.Dispatch<React.SetStateAction<Todo[]>>;

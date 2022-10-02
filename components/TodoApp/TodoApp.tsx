@@ -2,7 +2,7 @@ import React from "react";
 import { TodoItem } from "../TodoItem";
 import { TodoListControls } from "../TodoListControls";
 import { TodoListInput } from "../TodoListInput";
-import { Container, Wrapper, Header, Title, Text } from "./TodoList.styles";
+import { Container, Wrapper, Header, Title, Text } from "./TodoApp.styles";
 import { useTransition, animated } from "react-spring";
 
 export type Todo = {
@@ -19,7 +19,7 @@ export enum SortBy {
     Name = "name"
 }
 
-const TodoList = () => {
+const TodoApp = () => {
     const [todos, setTodos] = React.useState<Todo[]>([]);
     const [sortBy, setSortBy] = React.useState<SortBy>(SortBy.Date);
 
@@ -98,4 +98,4 @@ const TodoList = () => {
     )
 };
 
-export default TodoList;
+export default TodoApp;
