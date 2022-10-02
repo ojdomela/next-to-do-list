@@ -1,2 +1,2 @@
-export { default as TodoList } from './TodoApp';
+export { default as TodoApp } from './TodoApp';
 export type { Todo, SortBy } from './TodoApp';

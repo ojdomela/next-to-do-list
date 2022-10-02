@@ -1,6 +1,6 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import { TodoList } from '../components/TodoApp'
+import { TodoApp } from '../components/TodoApp'
 import styled from 'styled-components';
 import { theme } from '../styles';
 
@@ -16,8 +16,6 @@ const Container = styled.div`
 
 
 const Home: NextPage = () => {
-  const darkMode = true;
-
   return (
     <>
       <Head>
@@ -26,7 +24,7 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Container>
-        <TodoList />
+        <TodoApp />
       </Container>
     </>
   )
